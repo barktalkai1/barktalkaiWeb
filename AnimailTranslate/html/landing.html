@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-nav-layout="horizontal" data-nav-style="menu-click" data-menu-position="fixed" data-theme-mode="light">
+
+<head>
+
+    <!-- Meta Data -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> BarkTalKAI </title>
+    <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
+    <meta name="Author" content="Spruko Technologies Private Limited">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/brand-logos/favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap Css -->
+    <link id="style" href="../assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+
+    <!-- Style Css -->
+    <link href="../assets/css/styles.css" rel="stylesheet" >
+
+    <!-- Icons Css -->
+    <link href="../assets/css/icons.css" rel="stylesheet" >
+
+    <!-- Node Waves Css -->
+    <link href="../assets/libs/node-waves/waves.min.css" rel="stylesheet" >
+
+    <!-- SwiperJS Css -->
+    <link rel="stylesheet" href="../assets/libs/swiper/swiper-bundle.min.css">
+
+    <!-- Color Picker Css -->
+    <link rel="stylesheet" href="../assets/libs/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" href="../assets/libs/@simonwep/pickr/themes/nano.min.css">
+
+    <!-- Choices Css -->
+    <link rel="stylesheet" href="../assets/libs/choices.js/public/assets/styles/choices.min.css">
+
+    <script>
+        if(localStorage.ynexlandingdarktheme){
+            document.querySelector("html").setAttribute("data-theme-mode","dark")
+        }
+        if(localStorage.ynexlandingrtl){
+            document.querySelector("html").setAttribute("dir","rtl")
+            document.querySelector("#style")?.setAttribute("href", "../assets/libs/bootstrap/css/bootstrap.rtl.min.css");
+        }
+    </script>
+
+
+</head>
+
+<body class="landing-body">
+
+    <!-- Start Switcher -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="switcher-canvas" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Switcher</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="">
+                <p class="switcher-style-head">Theme Color Mode:</p>
+                <div class="row switcher-style">
+                    <div class="col-4">
+                        <div class="form-check switch-select">
+                            <label class="form-check-label" for="switcher-light-theme">
+                                Light
+                            </label>
+                            <input class="form-check-input" type="radio" name="theme-style" id="switcher-light-theme"
+                                checked>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-check switch-select">
+                            <label class="form-check-label" for="switcher-dark-theme">
+                                Dark
+                            </label>
+                            <input class="form-check-input" type="radio" name="theme-style" id="switcher-dark-theme">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <p class="switcher-style-head">Directions:</p>
+                <div class="row switcher-style">
+                    <div class="col-4">
+                        <div class="form-check switch-select">
+                            <label class="form-check-label" for="switcher-ltr">
+                                LTR
+                            </label>
+                            <input class="form-check-input" type="radio" name="direction" id="switcher-ltr" checked>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-check switch-select">
+                            <label class="form-check-label" for="switcher-rtl">
+                                RTL
+                            </label>
+                            <input class="form-check-input" type="radio" name="direction" id="switcher-rtl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="theme-colors">
+                <p class="switcher-style-head">Theme Primary:</p>
+                <div class="d-flex align-items-center switcher-style">
+                    <div class="form-check switch-select me-3">
+                        <input class="form-check-input color-input color-primary-1" type="radio"
+                            name="theme-primary" id="switcher-primary">
+                    </div>
+                    <div class="form-check switch-select me-3">
+                        <input class="form-check-input color-input color-primary-2" type="radio"
+                            name="theme-primary" id="switcher-primary1">
+                    </div>
+                    <div class="form-check switch-select me-3">
+                        <input class="form-check-input color-input color-primary-3" type="radio" name="theme-primary"
+                            id="switcher-primary2">
+                    </div>
+                    <div class="form-check switch-select me-3">
+                        <input class="form-check-input color-input color-primary-4" type="radio" name="theme-primary"
+                            id="switcher-primary3">
+                    </div>
+                    <div class="form-check switch-select me-3">
+                        <input class="form-check-input color-input color-primary-5" type="radio" name="theme-primary"
+                            id="switcher-primary4">
+                    </div>
+                    <div class="form-check switch-select me-3 ps-0 mt-1 color-primary-light">
+                        <div class="theme-container-primary"></div>
+                        <div class="pickr-container-primary"></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p class="switcher-style-head">reset:</p>
+                <div class="text-center">
+                    <button id="reset-all" class="btn btn-danger mt-3">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Switcher -->
+
+    <div class="landing-page-wrapper">
+
+         <!-- app-header -->
+        <header class="app-header">
+
+            <!-- Start::main-header-container -->
+            <div class="main-header-container container-fluid">
+
+                <!-- Start::header-content-left -->
+                <div class="header-content-left">
+
+                    <!-- Start::header-element -->
+                    <div class="header-element">
+                        <div class="horizontal-logo">
+                            <a href="landing.html" class="header-logo">
+                                <img src="../assets/images/brand-logos/toggle-logo.png" alt="logo" class="toggle-logo">
+                                <img src="../assets/images/brand-logos/toggle-dark.png" alt="logo" class="toggle-dark">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End::header-element -->
+
+                    <!-- Start::header-element -->
+                    <div class="header-element">
+                        <!-- Start::header-link -->
+                        <a href="javascript:void(0);" class="sidemenu-toggle header-link" data-bs-toggle="sidebar">
+                            <span class="open-toggle">
+                                <i class="ri-menu-3-line fs-20"></i>
+                            </span>
+                        </a>
+                        <!-- End::header-link -->
+                    </div>
+                    <!-- End::header-element -->
+
+                </div>
+                <!-- End::header-content-left -->
+
+                <!-- Start::header-content-right -->
+                <div class="header-content-right">
+
+                    <!-- Start::header-element -->
+                    <div class="header-element align-items-center">
+                        <!-- Start::header-link|switcher-icon -->
+                        
+                        <!-- End::header-link|switcher-icon -->
+                    </div>
+                    <!-- End::header-element -->
+
+                </div>
+                <!-- End::header-content-right -->
+
+            </div>
+            <!-- End::main-header-container -->
+
+        </header>
+        <!-- /app-header -->
+
+        <!-- Start::app-sidebar -->
+        <aside class="app-sidebar sticky" id="sidebar">
+
+            <div class="container p-0">
+                <!-- Start::main-sidebar -->
+                <div class="main-sidebar">
+
+                    <!-- Start::nav -->
+                    <nav class="main-menu-container nav nav-pills sub-open">
+                        <div class="landing-logo-container">
+                            <div class="horizontal-logo">
+                                <a href="landing.html" class="header-logo">
+                                    <img src="../assets/images/media/landing/ai/logo.png"  class="desktop-white" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="slide-left" id="slide-left"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24"> <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path> </svg></div>
+                        <ul class="main-menu">
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a class="side-menu__item" href="#home">
+                                    <span class="side-menu__label">Home</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a href="#about" class="side-menu__item">
+                                    <span class="side-menu__label">About</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+
+
+                            <li class="slide">
+                                <a href="https://www.reddit.com/r/dogs/" class="side-menu__item">
+                                    <span class="side-menu__label">BBS</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a href="#features" class="side-menu__item">
+                                    <span class="side-menu__label">Models</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide has-sub">
+                                <a href="javascript:void(0);" class="side-menu__item">
+                                    <span class="side-menu__label me-2">Adoption</span>
+                                    <i class="fe fe-chevron-right side-menu__angle op-8"></i>
+                                </a>
+                                <ul class="slide-menu child1">
+                                    <li class="slide">
+                                        <a href="add-products.html" class="side-menu__item">POST</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="wishlist.html" class="side-menu__item">Adopt a Dog</a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+
+  
+
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a href="../Buy.html" class="side-menu__item">
+                                    <span class="side-menu__label">DogLifeHelper</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+
+                            <li class="slide has-sub">
+                                <a href="javascript:void(0);" class="side-menu__item">
+                                    <span class="side-menu__label me-2">Mall</span>
+                                    <i class="fe fe-chevron-right side-menu__angle op-8"></i>
+                                </a>
+                                <ul class="slide-menu child1">
+                                    <li class="slide">
+                                        <a href="products-list.html" class="side-menu__item">Seller</a>
+                                    </li>
+                                    <li class="slide">
+                                        <a href="orders.html" class="side-menu__item">Buyer</a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+
+                            
+                            <li class="slide">
+                                <a href="#our-mission" class="side-menu__item">
+                                    <span class="side-menu__label">RoadMap</span>
+                                </a>
+                            </li>
+
+                            <li class="slide">
+                                <a href="#team" class="side-menu__item">
+                                    <span class="side-menu__label">Team</span>
+                                </a>
+                            </li>
+
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a href="#faq" class="side-menu__item">
+                                    <span class="side-menu__label">Faq's</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+                            <!-- Start::slide -->
+                            <li class="slide">
+                                <a href="#contact" class="side-menu__item">
+                                    <span class="side-menu__label">Contact</span>
+                                </a>
+                            </li>
+                            <!-- End::slide -->
+
+                        </ul>
+                        <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24"> <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path> </svg></div>
+                        <div class="d-lg-flex d-none">
+                            
+                        </div>
+                    </nav>
+                    <!-- End::nav -->
+
+                </div>
+                <!-- End::main-sidebar -->
+            </div>
+
+        </aside>
+        <!-- End::app-sidebar -->
+
+        <!-- Start::app-content -->
+        <div class="main-content landing-main">
+
+            <!-- Start:: Section-1 -->
+            <div class="landing-banner" id="home">
+                <section class="section">
+                    <div class="container main-banner-container">
+                        <div class="row">
+                            <div class="col-xxl-7 col-xl-7 col-lg-7 col-md-8">
+                                <div class="py-lg-5">
+                                    <div class="mb-3">
+                                        <h5 class="fw-semibold text-fixed-white op-9">A WORLD FOR DOGS AND THEIR HUMANS</h5>
+                                    </div>
+                                    <p class="landing-banner-heading mb-3">Where Tails Wag and Hearts Connect <span class="text-secondary">with Paws & Whispers!</span></p>
+                                    <div class="fs-16 mb-5 text-fixed-white op-7">Step into a world where every bark tells a story, every wag speaks a language, and every glance holds a secret. Our platform is a bridge between you and your furry companion, unlocking the mysteries of their actions and emotions through the magic of AI.</div>
+                                  
+                                </div>
+                            </div>
+                            <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-4">
+                                <div class="text-end landing-main-image landing-heading-img">
+                                    <img src="../assets/images/media/landing/ai/logo-full.png" alt="Paws & Whispers Logo" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- End:: Section-1 -->
+
+            <!-- Start:: Section-2 -->
+            <!--<section class="section section-bg " id="statistics">
+                <div class="container text-center position-relative">
+                    <p class="fs-12 fw-semibold text-success mb-1"><span class="landing-section-heading">STATISTICS</span></p>
+                    <h3 class="fw-semibold mb-2">More than 120+ projects completed.</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-7">
+                            <p class="text-muted fs-15 mb-5 fw-normal">We are proud to have top class clients and customers,which motivates us to work more on projects.</p>
+                        </div>
+                    </div>
+                    <div class="row  g-2 justify-content-center">
+                        <div class="col-xl-12">
+                            <div class="row justify-content-evenly">
+                                <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+                                    <div class="p-3 text-center rounded-2 bg-white border">
+                                        <span class="mb-3 avatar avatar-lg avatar-rounded bg-primary-transparent">
+                                            <i class='fs-24 bx bx-spreadsheet'></i>
+                                          </span>
+                                          <h3 class="fw-semibold mb-0 text-dark">120+</h3>
+                                        <p class="mb-1 fs-14 op-7 text-muted ">
+                                            Projects
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+                                    <div class="p-3 text-center rounded-2 bg-white border">
+                                        <span class="mb-3 avatar avatar-lg avatar-rounded bg-primary-transparent">
+                                            <i class='fs-24 bx bx-user-plus' ></i>
+                                          </span>
+                                          <h3 class="fw-semibold mb-0 text-dark">20K+</h3>
+                                        <p class="mb-1 fs-14 op-7 text-muted ">
+                                            Clients
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+                                    <div class="p-3 text-center rounded-2 bg-white border">
+                                        <span class="mb-3 avatar avatar-lg avatar-rounded bg-primary-transparent">
+                                            <i class='fs-24 bx bx-money' ></i>
+                                          </span>
+                                          <h3 class="fw-semibold mb-0 text-dark">$45.8M</h3>
+                                        <p class="mb-1 fs-14 op-7 text-muted ">
+                                            Income Earned
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+                                    <div class="p-3 text-center rounded-2 bg-white border">
+                                        <span class="mb-3 avatar avatar-lg avatar-rounded bg-primary-transparent">
+                                            <i class='fs-24 bx bx-user-circle' ></i>
+                                          </span>
+                                          <h3 class="fw-semibold mb-0 text-dark">854</h3>
+                                        <p class="mb-1 fs-14 op-7 text-muted ">
+                                            Employees
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-12 mb-3">
+                                    <div class="p-3 text-center rounded-2 bg-white border">
+                                        <span class="mb-3 avatar avatar-lg avatar-rounded bg-primary-transparent">
+                                            <i class='fs-24 bx bx-calendar' ></i>
+                                          </span>
+                                          <h3 class="fw-semibold mb-0 text-dark">5+</h3>
+                                        <p class="mb-1 fs-14 op-7 text-muted ">
+                                            Years of Experience
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>-->
+            <!-- End:: Section-2 -->
+
+            <!-- Start:: Section-3 -->
+            <section class="section" id="about">
+                <div class="container text-center">
+                    <p class="fs-12 fw-semibold text-success mb-1"><span class="landing-section-heading">About</span></p>
+                    <h3 class="fw-semibold mb-2">Designed for Dog Lovers and Their Furry Friends</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-7">
+                            <p class="text-muted fs-15 mb-3 fw-normal">Our dog platform offers advanced features to help you better understand and connect with your dog.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-xxl-5 col-xl-5 col-lg-5 customize-image text-center">
+                        <div class="text-lg-end">
+                            <img src="../assets/images/media/landing/3.png" alt="Dog Platform Features" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-xxl-5 col-xl-5 col-lg-5 pt-5 pb-0 px-lg-2 px-5 text-start">
+                        <h5 class="text-lg-start fw-semibold mb-0">Discover the World Through Your Dog's Eyes</h5>
+                        <p class="text-muted">Our platform is designed to help you understand your dog better by providing tools for dog action recognition and language translation.</p>
+                        <div class="row">
+                            <div class="col-12 col-md-12">
+                                <div class="d-flex">
+                                    <span>
+                                        <i class='bx bxs-badge-check text-primary fs-18'></i>
+                                    </span>
+                                    <div class="ms-2">
+                                        <h6 class="fw-semibold mb-0">Dog Action Recognition</h6>
+                                        <p class="text-muted">Our advanced AI technology can recognize and interpret your dog's actions, helping you understand their behavior and needs.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <div class="d-flex">
+                                    <span>
+                                        <i class='bx bxs-badge-check text-primary fs-18'></i>
+                                    </span>
+                                    <div class="ms-2">
+                                        <h6 class="fw-semibold mb-0">Dog Language Translation</h6>
+                                        <p class="text-muted">Translate your dog's barks, whines, and body language into human-understandable messages, making communication easier than ever.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12">
+                                <div class="d-flex">
+                                    <span>
+                                        <i class='bx bxs-badge-check text-primary fs-18'></i>
+                                    </span>
+                                    <div class="ms-2">
+                                        <h6 class="fw-semibold mb-0">Personalized Insights and Recommendations</h6>
+                                        <p class="text-muted">Get tailored advice and recommendations based on your dog's behavior and health, ensuring they live a happy and healthy life.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End:: Section-3 -->
+
+            <!-- Start:: Section-4 -->
+            <section class="section section-bg" id="our-mission">
+                <div class="container text-center">
+                    <p class="fs-12 fw-semibold text-success mb-1"><span class="landing-section-heading">RoadMap</span></p>
+                    <h2 class="fw-semibold mb-2">Our mission consists of 6 major steps.</h2>
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-xl-7">
+                            <p class="text-muted fs-15 mb-5 fw-normal">Our mission is to create a world where dogs and their humans can connect, understand, and thrive together through innovative technology.</p>
+                            <img src="../assets/images/media/landing/ai/roadmap.png" class="img-fluid" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Step 1: Join Hackathon and Secure Funding -->
+                        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="card custom-card text-start landing-missions">
+                                <div class="card-body">
+                                    <div class="align-items-top">
+                                        <div class="mb-2">
+                                            <span class="avatar avatar-lg avatar-rounded bg-primary-transparent">
+                                                <i class='bx bx-trophy fs-25'></i>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-semibold mb-1">
+                                                Join Hackathon & Secure Funding
+                                            </h6>
+                                            <p class="mb-0 text-muted">Participate in hackathons to showcase our vision and secure initial funding to kickstart the platform.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Establish the Company -->
+                        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="card custom-card text-start landing-missions">
+                                <div class="card-body">
+                                    <div class="align-items-top">
+                                        <div class="mb-2">
+                                            <span class="avatar avatar-lg avatar-rounded bg-primary-transparent">
+                                                <i class='bx bx-building fs-25'></i>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-semibold mb-1">
+                                                Establish the Company
+                                            </h6>
+                                            <p class="mb-0 text-muted">Formalize the company structure, build a talented team, and set up operations to bring our vision to life.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Build a Dog-Loving Community & Launch Adoption Platform -->
+                        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="card custom-card text-start landing-missions">
+                                <div class="card-body">
+                                    <div class="align-items-top">
+                                        <div class="mb-2">
+                                            <span class="avatar avatar-lg avatar-rounded bg-primary-transparent">
+                                                <i class='bx bx-heart fs-25'></i>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-semibold mb-1">
+                                                Build Community & Launch Adoption
+                                            </h6>
+                                            <p class="mb-0 text-muted">Create a vibrant dog-loving community and launch an AI-powered adoption platform to connect dogs with loving homes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Develop Dog Life Assistant Features -->
+                        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="card custom-card text-start landing-missions">
+                                <div class="card-body">
+                                    <div class="align-items-top">
+                                        <div class="mb-2">
+                                            <span class="avatar avatar-lg avatar-rounded bg-primary-transparent">
+                                                <i class='bx bx-brain fs-25'></i>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-semibold mb-1">
+                                                Develop Dog Life Assistant
+                                            </h6>
+                                            <p class="mb-0 text-muted">Leverage AI technology to develop features like dog behavior analysis, health monitoring, and personalized recommendations.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Launch Dog Product Marketplace -->
+                        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="card custom-card text-start landing-missions">
+                                <div class="card-body">
+                                    <div class="align-items-top">
+                                        <div class="mb-2">
+                                            <span class="avatar avatar-lg avatar-rounded bg-primary-transparent">
+                                                <i class='bx bx-cart fs-25'></i>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-semibold mb-1">
+                                                Launch Dog Product Marketplace
+                                            </h6>
+                                            <p class="mb-0 text-muted">Create an online marketplace for dog-related products, from food and toys to accessories and healthcare items.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 6: Develop Dog Life Assistant VR Glasses -->
+                        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="card custom-card text-start landing-missions">
+                                <div class="card-body">
+                                    <div class="align-items-top">
+                                        <div class="mb-2">
+                                            <span class="avatar avatar-lg avatar-rounded bg-primary-transparent">
+                                                <i class='bx bx-glasses fs-25'></i>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-semibold mb-1">
+                                                Develop Dog Life Assistant VR
+                                            </h6>
+                                            <p class="mb-0 text-muted">Innovate with VR glasses designed for dogs, enhancing their training, entertainment, and overall well-being.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 7: Research Dog Language Interaction Module -->
+                        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="card custom-card text-start landing-missions">
+                                <div class="card-body">
+                                    <div class="align-items-top">
+                                        <div class="mb-2">
+                                            <span class="avatar avatar-lg avatar-rounded bg-primary-transparent">
+                                                <i class='bx bx-chat fs-25'></i>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-semibold mb-1">
+                                                Research Dog Language Interaction
+                                            </h6>
+                                            <p class="mb-0 text-muted">Develop a module to interpret and translate dog barks, whines, and body language into human-understandable messages.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End:: Section-4 -->
+
+            <!-- Start:: Section-5 -->
+            <section class="section landing-Features" id="features">
+                <div class="container text-center">
+                    <p class="fs-12 fw-semibold text-success mb-1"><span class="landing-section-heading">AI Models</span></p>
+                    <h2 class="fw-semibold mb-2 text-fixed-white">AI Models We Use</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-7">
+                            <p class="text-fixed-white op-8 fs-15 mb-3 fw-normal">We leverage cutting-edge AI technologies to power our platform and deliver exceptional results.</p>
+                        </div>
+                    </div>
+                    <div class="text-start">
+                        <div class="justify-content-center">
+                            <div class="">
+                                <div class="feature-logos mt-sm-5 flex-wrap">
+                                    <div class="ms-sm-5 ms-2 text-center">
+                                        <img src="../assets/images/media/landing/ai/slowfast.png" alt="SlowFast" class="featur-icon">
+                                        <h5 class="mt-3 text-fixed-white">SlowFast</h5>
+                                        <p class="text-fixed-white op-8 fs-14">For advanced video understanding and action recognition.</p>
+                                    </div>
+                                    <div class="ms-sm-5 ms-2 text-center">
+                                        <img src="../assets/images/media/landing/ai/onnx.png" alt="ONNX" class="featur-icon">
+                                        <h5 class="mt-3 text-fixed-white">ONNX</h5>
+                                        <p class="text-fixed-white op-8 fs-14">For interoperability and optimized model deployment.</p>
+                                    </div>
+                                    <div class="ms-sm-5 ms-2 text-center">
+                                        <img src="../assets/images/media/landing/ai/pytorch.png" alt="PyTorch" class="featur-icon">
+                                        <h5 class="mt-3 text-fixed-white">PyTorch</h5>
+                                        <p class="text-fixed-white op-8 fs-14">For flexible and dynamic deep learning model development.</p>
+                                    </div>
+                                    <div class="ms-sm-5 ms-2 text-center">
+                                        <img src="../assets/images/media/landing/ai/tensorflow.png" alt="TensorFlow" class="featur-icon">
+                                        <h5 class="mt-3 text-fixed-white">TensorFlow</h5>
+                                        <p class="text-fixed-white op-8 fs-14">For scalable machine learning and neural network training.</p>
+                                    </div>
+                                    <div class="ms-sm-5 ms-2 text-center">
+                                        <img src="../assets/images/media/landing/ai/opencv.png" alt="OpenCV" class="featur-icon">
+                                        <h5 class="mt-3 text-fixed-white">OpenCV</h5>
+                                        <p class="text-fixed-white op-8 fs-14">For real-time computer vision and image processing.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination mt-4"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- End:: Section-5 -->
+
+            <!-- Start:: Section-6 -->
+            <section class="section landing-testimonials section-bg" id="testimonials">
+                <div class="container text-center">
+                    <p class="fs-12 fw-semibold text-success mb-1"><span class="landing-section-heading">TESTIMONIALS</span></p>
+                    <h3 class="fw-semibold mb-2">We never failed to reach expectations</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-7">
+                            <p class="text-muted fs-15 mb-5 fw-normal">Some of the reviews our clients gave which brings motivation to work for future projects.</p>
+                        </div>
+                    </div>
+                    <div class="swiper pagination-dynamic text-start">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="row">
+                                    <div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                        <div class="card custom-card testimonial-card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <span class="avatar avatar-md avatar-rounded me-3">
+                                                        <img src="../assets/images/faces/15.jpg" alt="">
+                                                    </span>
+                                                    <div>
+                                                        <p class="mb-0 fw-semibold fs-14">Json Taylor</p>
+                                                        <p class="mb-0 fs-10 fw-semibold text-muted">CEO OF NORJA</p>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <span class="text-muted">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum autem quaerat distinctio  --</span>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="text-muted">Rating : </span>
+                                                        <span class="text-warning d-block ms-1">
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-half-fill"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="float-end fs-12 fw-semibold text-muted text-end">
+                                                        <span>12 days ago</span>
+                                                        <span class="d-block fw-normal fs-12 text-success"><i>Json Taylor</i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                        <div class="card custom-card testimonial-card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <span class="avatar avatar-md avatar-rounded me-3">
+                                                        <img src="../assets/images/faces/4.jpg" alt="">
+                                                    </span>
+                                                    <div>
+                                                        <p class="mb-0 fw-semibold fs-14">Melissa Blue</p>
+                                                        <p class="mb-0 fs-10 fw-semibold text-muted">MANAGER CHO</p>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <span class="text-muted">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum autem quaerat distinctio  --</span>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="text-muted">Rating : </span>
+                                                        <span class="text-warning d-block ms-1">
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-half-fill"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="float-end fs-12 fw-semibold text-muted text-end">
+                                                        <span>7 days ago</span>
+                                                        <span class="d-block fw-normal fs-12 text-success"><i>Melissa Blue</i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                        <div class="card custom-card testimonial-card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <span class="avatar avatar-md avatar-rounded me-3">
+                                                        <img src="../assets/images/faces/2.jpg" alt="">
+                                                    </span>
+                                                    <div>
+                                                        <p class="mb-0 fw-semibold fs-14">Kiara Advain</p>
+                                                        <p class="mb-0 fs-10 fw-semibold text-muted">CEO OF EMPIRO</p>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <span class="text-muted">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum autem quaerat distinctio  --</span>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="text-muted">Rating : </span>
+                                                        <span class="text-warning d-block ms-1">
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-line"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="float-end fs-12 fw-semibold text-muted text-end">
+                                                        <span>2 days ago</span>
+                                                        <span class="d-block fw-normal fs-12 text-success"><i>Kiara Advain</i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="row">
+                                    <div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                        <div class="card custom-card testimonial-card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <span class="avatar avatar-md avatar-rounded me-3">
+                                                        <img src="../assets/images/faces/10.jpg" alt="">
+                                                    </span>
+                                                    <div>
+                                                        <p class="mb-0 fw-semibold fs-14">Jhonson Smith</p>
+                                                        <p class="mb-0 fs-10 fw-semibold text-muted">CHIEF SECRETARY MBIO</p>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <span class="text-muted">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum autem quaerat distinctio  --</span>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="text-muted">Rating : </span>
+                                                        <span class="text-warning d-block ms-1">
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-half-fill"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="float-end fs-12 fw-semibold text-muted text-end">
+                                                        <span>16 hrs ago</span>
+                                                        <span class="d-block fw-normal fs-12 text-success"><i>Jhonson Smith</i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                        <div class="card custom-card testimonial-card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <span class="avatar avatar-md avatar-rounded me-3">
+                                                        <img src="../assets/images/faces/12.jpg" alt="">
+                                                    </span>
+                                                    <div>
+                                                        <p class="mb-0 fw-semibold fs-14">Dwayne Stort</p>
+                                                        <p class="mb-0 fs-10 fw-semibold text-muted">CEO ARMEDILLO</p>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <span class="text-muted">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum autem quaerat distinctio  --</span>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="text-muted">Rating : </span>
+                                                        <span class="text-warning d-block ms-1">
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-line"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="float-end fs-12 fw-semibold text-muted text-end">
+                                                        <span>22 days ago</span>
+                                                        <span class="d-block fw-normal fs-12 text-success"><i>Dwayne Stort</i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                        <div class="card custom-card testimonial-card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <span class="avatar avatar-md avatar-rounded me-3">
+                                                        <img src="../assets/images/faces/3.jpg" alt="">
+                                                    </span>
+                                                    <div>
+                                                        <p class="mb-0 fw-semibold fs-14">Jasmine Kova</p>
+                                                        <p class="mb-0 fs-10 fw-semibold text-muted">AGGENT AMIO</p>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <span class="text-muted">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum autem quaerat distinctio  --</span>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="text-muted">Rating : </span>
+                                                        <span class="text-warning d-block ms-1">
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-half-fill"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="float-end fs-12 fw-semibold text-muted text-end">
+                                                        <span>26 days ago</span>
+                                                        <span class="d-block fw-normal fs-12 text-success"><i>Jasmine Kova</i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="row">
+                                    <div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                        <div class="card custom-card testimonial-card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <span class="avatar avatar-md avatar-rounded me-3">
+                                                        <img src="../assets/images/faces/16.jpg" alt="">
+                                                    </span>
+                                                    <div>
+                                                        <p class="mb-0 fw-semibold fs-14">Dolph MR</p>
+                                                        <p class="mb-0 fs-10 fw-semibold text-muted">CEO MR BRAND</p>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <span class="text-muted">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum autem quaerat distinctio  --</span>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="text-muted">Rating : </span>
+                                                        <span class="text-warning d-block ms-1">
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="float-end fs-12 fw-semibold text-muted text-end">
+                                                        <span>1 month ago</span>
+                                                        <span class="d-block fw-normal fs-12 text-success"><i>Dolph MR</i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                        <div class="card custom-card testimonial-card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <span class="avatar avatar-md avatar-rounded me-3">
+                                                        <img src="../assets/images/faces/5.jpg" alt="">
+                                                    </span>
+                                                    <div>
+                                                        <p class="mb-0 fw-semibold fs-14">Brenda Simpson</p>
+                                                        <p class="mb-0 fs-10 fw-semibold text-muted">CEO AIBMO</p>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <span class="text-muted">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum autem quaerat distinctio  --</span>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="text-muted">Rating : </span>
+                                                        <span class="text-warning d-block ms-1">
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-half-fill"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="float-end fs-12 fw-semibold text-muted text-end">
+                                                        <span>1 month ago</span>
+                                                        <span class="d-block fw-normal fs-12 text-success"><i>Brenda Simpson</i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                        <div class="card custom-card testimonial-card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <span class="avatar avatar-md avatar-rounded me-3">
+                                                        <img src="../assets/images/faces/7.jpg" alt="">
+                                                    </span>
+                                                    <div>
+                                                        <p class="mb-0 fw-semibold fs-14">Julia Sams</p>
+                                                        <p class="mb-0 fs-10 fw-semibold text-muted">CHIEF SECRETARY BHOL</p>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <span class="text-muted">- Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum autem quaerat distinctio  --</span>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="text-muted">Rating : </span>
+                                                        <span class="text-warning d-block ms-1">
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                            <i class="ri-star-fill"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="float-end fs-12 fw-semibold text-muted text-end">
+                                                        <span>2 month ago</span>
+                                                        <span class="d-block fw-normal fs-12 text-success"><i>Julia Sams</i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination mt-4"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- End:: Section-6 -->
+
+            <!-- Start:: Section-7 -->
+            <section class="section  section-bg" id="team">
+                <div class="container text-center">
+                    <p class="fs-12 fw-semibold text-success mb-1"><span class="landing-section-heading">OUR TEAM</span></p>
+                    <h3 class="fw-semibold mb-2">Great things in business are done by a team.</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-7">
+                            <p class="text-muted fs-15 mb-5 fw-normal">Our team consists of highly qulified employees that works hard to raise company standards.</p>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                            <div class="card custom-card text-center team-card ">
+                                <div class="card-body p-5">
+                                    <span class="avatar avatar-xxl avatar-rounded mb-3 team-avatar">
+                                        <img src="../assets/images/faces/15.jpg" alt="">
+                                    </span>
+                                    <p class="fw-semibold fs-17 mb-0 text-default">Peter Parker</p>
+                                    <span class="text-muted fs-14 text-primary fw-semibold">Director</span>
+                                    <p class="text-muted mt-2 fs-13"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                    <div class="mt-2">
+                                        <button class="btn btn-light">View profile</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                            <div class="card custom-card text-center team-card ">
+                                <div class="card-body p-5">
+                                    <span class="avatar avatar-xxl avatar-rounded mb-3 team-avatar">
+                                        <img src="../assets/images/faces/12.jpg" alt="">
+                                    </span>
+                                    <p class="fw-semibold fs-17 mb-0 text-default">Andrew garfield</p>
+                                    <span class="text-muted fs-14 text-primary fw-semibold">Manager</span>
+                                    <p class="text-muted mt-2 fs-13"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                    <div class="mt-2">
+                                        <button class="btn btn-light">View profile</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                            <div class="card custom-card text-center team-card ">
+                                <div class="card-body p-5">
+                                    <span class="avatar avatar-xxl avatar-rounded mb-3 team-avatar">
+                                        <img src="../assets/images/faces/5.jpg" alt="">
+                                    </span>
+                                    <p class="fw-semibold fs-17 mb-0 text-default">Elizabeth Rose</p>
+                                    <span class="text-muted fs-14 text-primary fw-semibold">HR</span>
+                                    <p class="text-muted mt-2 fs-13"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                    <div class="mt-2">
+                                        <button class="btn btn-light">View profile</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                            <div class="card custom-card text-center team-card ">
+                                <div class="card-body p-5">
+                                    <span class="avatar avatar-xxl avatar-rounded mb-3 team-avatar">
+                                        <img src="../assets/images/faces/1.jpg" alt="">
+                                    </span>
+                                    <p class="fw-semibold fs-17 mb-0 text-default">Elizabeth Rose</p>
+                                    <span class="text-muted fs-14 text-primary fw-semibold">HR</span>
+                                    <p class="text-muted mt-2 fs-13"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                    <div class="mt-2">
+                                        <button class="btn btn-light">View profile</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <button class="btn btn-primary">View All</button>
+                    </div>
+                </div>
+            </section>
+            <!-- End:: Section-7 -->
+
+            <!-- Start:: Section-8 -->
+            
+            <!-- End:: Section-8 -->
+
+            <!-- Start:: Section-9 -->
+            <section class="section section-bg" id="faq">
+                <div class="container text-center">
+                    <p class="fs-12 fw-semibold text-success mb-1"><span class="landing-section-heading">F.A.Q</span></p>
+                    <h3 class="fw-semibold mb-2">Frequently Asked Questions</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-7">
+                            <p class="text-muted fs-15 mb-5 fw-normal">We’ve answered some of the most common questions about our platform to help you get started.</p>
+                        </div>
+                    </div>
+                    <div class="row text-start">
+                        <div class="col-xl-12">
+                            <div class="row gy-2">
+                                <div class="col-xl-6">
+                                    <div class="accordion accordion-customicon1 accordion-primary accordions-items-seperate" id="accordionFAQ1">
+                                        <!-- Question 1 -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingOne">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapseOne" aria-expanded="true"
+                                                        aria-controls="collapseOne">
+                                                    How does the dog adoption process work?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse show"
+                                                 aria-labelledby="headingOne"
+                                                 data-bs-parent="#accordionFAQ1">
+                                                <div class="accordion-body">
+                                                    Our adoption process is simple! Browse through our list of dogs available for adoption, fill out an application, and our team will guide you through the rest. We ensure every dog finds a loving and safe home.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 2 -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingTwo">
+                                                <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                        aria-expanded="false" aria-controls="collapseTwo">
+                                                    What is the Dog Life Assistant, and how does it work?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTwo" class="accordion-collapse collapse"
+                                                 aria-labelledby="headingTwo"
+                                                 data-bs-parent="#accordionFAQ1">
+                                                <div class="accordion-body">
+                                                    The Dog Life Assistant is an AI-powered tool that helps you understand your dog better. It analyzes your dog’s behavior, provides health tips, and even translates barks and body language into actionable insights.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 3 -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingThree">
+                                                <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                        aria-expanded="false" aria-controls="collapseThree">
+                                                    Can I return a dog if it doesn’t fit well with my family?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseThree" class="accordion-collapse collapse"
+                                                 aria-labelledby="headingThree"
+                                                 data-bs-parent="#accordionFAQ1">
+                                                <div class="accordion-body">
+                                                    While we encourage careful consideration before adoption, we understand that sometimes things don’t work out. You can return the dog within 30 days, and we’ll help find a better match for both the dog and your family.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 4 -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingFour">
+                                                <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                                        aria-expanded="false" aria-controls="collapseFour">
+                                                    How does the dog language translation feature work?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFour" class="accordion-collapse collapse"
+                                                 aria-labelledby="headingFour"
+                                                 data-bs-parent="#accordionFAQ1">
+                                                <div class="accordion-body">
+                                                    Our dog language translation feature uses advanced AI to analyze your dog’s barks, whines, and body language. It then provides you with insights into what your dog might be feeling or trying to communicate.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-6">
+                                    <div class="accordion accordion-customicon1 accordion-primary accordions-items-seperate" id="accordionFAQ2">
+                                        <!-- Question 5 -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingFive">
+                                                <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseFive"
+                                                        aria-expanded="false" aria-controls="collapseFive">
+                                                    What is the Dog Life Assistant VR Glasses?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFive" class="accordion-collapse collapse"
+                                                 aria-labelledby="headingFive"
+                                                 data-bs-parent="#accordionFAQ2">
+                                                <div class="accordion-body">
+                                                    The Dog Life Assistant VR Glasses are designed to enhance your dog’s training and entertainment. They provide immersive experiences that help with behavior training, mental stimulation, and more.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 6 -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingSix">
+                                                <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseSix"
+                                                        aria-expanded="false" aria-controls="collapseSix">
+                                                    How can I join the dog-loving community?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseSix" class="accordion-collapse collapse"
+                                                 aria-labelledby="headingSix"
+                                                 data-bs-parent="#accordionFAQ2">
+                                                <div class="accordion-body">
+                                                    Joining our community is easy! Simply create an account on our platform, and you’ll gain access to forums, events, and resources to connect with other dog lovers.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 7 -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingSeven">
+                                                <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseSeven"
+                                                        aria-expanded="false" aria-controls="collapseSeven">
+                                                    Are there any fees for using the platform?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseSeven" class="accordion-collapse collapse"
+                                                 aria-labelledby="headingSeven"
+                                                 data-bs-parent="#accordionFAQ2">
+                                                <div class="accordion-body">
+                                                    Basic features like browsing adoptable dogs and joining the community are free. However, premium features like the Dog Life Assistant and VR Glasses may require a subscription or one-time purchase.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Question 8 -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingEight">
+                                                <button class="accordion-button collapsed" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseEight"
+                                                        aria-expanded="false" aria-controls="collapseEight">
+                                                    How do I contact support if I have issues?
+                                                </button>
+                                            </h2>
+                                            <div id="collapseEight" class="accordion-collapse collapse"
+                                                 aria-labelledby="headingEight"
+                                                 data-bs-parent="#accordionFAQ2">
+                                                <div class="accordion-body">
+                                                    You can reach our support team 24/7 via email at support@pawsandwhispers.com or through the live chat feature on our platform. We’re here to help!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End:: Section-9 -->
+
+            <!-- Start:: Section-10 -->
+            <section class="section" id="contact">
+                <div class="container text-center">
+                    <p class="fs-12 fw-semibold text-success mb-1"><span class="landing-section-heading">CONTACT US</span></p>
+                    <h3 class="fw-semibold mb-2">Have any questions ? We would love to hear from you.</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-9">
+                            <p class="text-muted fs-15 mb-5 fw-normal">You can contact us anytime regarding any queries or deals,dont hesitate to clear your doubts before trying our product.</p>
+                        </div>
+                    </div>
+                    <div class="row text-start">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                            <div class="card custom-card border shadow-none">
+                                <div class="card-body p-0">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d30444.274596168965!2d78.54114692513858!3d17.48198883339408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d17.4886524!2d78.5495041!4m5!1s0x3bcb9c7ec139a15d%3A0x326d1c90786b2ab6!2sspruko%20technologies!3m2!1d17.474805099999998!2d78.570258!5e0!3m2!1sen!2sin!4v1670225507254!5m2!1sen!2sin"  height="365" style="border:0;width:100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                            <div class="card custom-card  overflow-hidden section-bg border overflow-hidden shadow-none">
+                                <div class="card-body">
+                                    <div class="row gy-3 mt-2 px-3">
+                                        <div class="col-xl-6">
+                                            <div class="row gy-3">
+                                                <div class="col-xl-12">
+                                                    <label for="contact-address-name" class="form-label ">Full Name :</label>
+                                                    <input type="text" class="form-control " id="contact-address-name" placeholder="Enter Name">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <label for="contact-address-phone" class="form-label ">Phone No :</label>
+                                                    <input type="text" class="form-control " id="contact-address-phone" placeholder="Enter Phone No">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <label for="contact-address-address" class="form-label ">Address :</label>
+                                                    <textarea class="form-control " id="contact-address-address" rows="1"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <label for="contact-address-message" class="form-label ">Message :</label>
+                                            <textarea class="form-control " id="contact-address-message" rows="8"></textarea>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class="d-flex  mt-4 ">
+                                                <div class="">
+                                                    <div class="btn-list">
+                                                        <button class="btn btn-icon btn-primary-light btn-wave">
+                                                            <i class="ri-facebook-line fw-bold"></i>
+                                                        </button>
+                                                        <button class="btn btn-icon btn-primary-light btn-wave">
+                                                            <i class="ri-twitter-line fw-bold"></i>
+                                                        </button>
+                                                        <button class="btn btn-icon btn-primary-light btn-wave">
+                                                            <i class="ri-instagram-line fw-bold"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="ms-auto">
+                                                    <button class="btn btn-primary  btn-wave">Send Message</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End:: Section-10 -->
+
+            <!-- Start:: Section-11 -->
+            
+            <!-- End:: Section-11 -->
+
+            <div class="text-center landing-main-footer py-3">
+                <span class="text-muted fs-15"> Copyright © <span id="year"></span> <a
+                    href="javascript:void(0);" class="text-primary fw-semibold"><u>BarkTalKAI</u> info@barktalkai.app</a>.
+                Designed with <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0);" class="text-primary fw-semibold"><u>
+    BarkTalKAI
+</u>
+                </a> All
+                rights
+                                                                               
+                                                                               <a href="https://www.bootstrapmb.com">BarkTalKAI</a>
+                </span>
+               
+            </div>
+
+        </div>
+        <!-- End::app-content -->
+
+    </div>
+
+    <div class="scrollToTop">
+        <span class="arrow"><i class="ri-arrow-up-s-fill fs-20"></i></span>
+    </div>
+    <div id="responsive-overlay"></div>
+
+    <!-- Popper JS -->
+    <script src="../assets/libs/@popperjs/core/umd/popper.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Color Picker JS -->
+    <script src="../assets/libs/@simonwep/pickr/pickr.es5.min.js"></script>
+
+    <!-- Choices JS -->
+    <script src="../assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="../assets/libs/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Defaultmenu JS -->
+    <script src="../assets/js/defaultmenu.min.js"></script>
+
+    <!-- Internal Landing JS -->
+    
+
+    <!-- Node Waves JS-->
+    <script src="../assets/libs/node-waves/waves.min.js"></script>
+
+    <!-- Sticky JS -->
+    <script src="../assets/js/sticky.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AnimailTranslate", "AnimailTranslate\", "{78F65E55-A0A9-4C06-AD8B-1A5F26B22C8A}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_56356"
+		Debug.AspNetCompiler.PhysicalPath = "AnimailTranslate\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56356\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_56356"
+		Release.AspNetCompiler.PhysicalPath = "AnimailTranslate\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56356\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "56356"
+		SlnRelativePath = "AnimailTranslate\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78F65E55-A0A9-4C06-AD8B-1A5F26B22C8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78F65E55-A0A9-4C06-AD8B-1A5F26B22C8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

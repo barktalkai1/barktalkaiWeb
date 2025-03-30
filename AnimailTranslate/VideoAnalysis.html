@@ -1,0 +1,481 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>
+        Animal Translate AI Agent
+    </title>
+
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link href="all.min.css" rel="stylesheet" />
+    <!-- Google Fonts Roboto -->
+    <link href="css2.css" rel="stylesheet" />
+    <!-- MDB CSS -->
+    <link href="mdb.min.css" rel="stylesheet" />
+    <!-- MDB JS -->
+    <script src="mdb.min.js"></script>
+    <!-- ethers钱包 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+
+    <style>
+        #chat2 .form-control {
+            border-color: transparent;
+        }
+
+            #chat2 .form-control:focus {
+                border-color: transparent;
+                box-shadow: inset 0px 0px 0px 1px transparent;
+            }
+
+        .divider:after,
+        .divider:before {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eee;
+        }
+
+        /* 三角形和文字容器 */
+        .tooltip-triangle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 10;
+        }
+
+            /* 提示文字 */
+            .tooltip-triangle .tooltip-text {
+                margin-bottom: 5px; /* 文字在上方 */
+                font-size: 12px;
+                color: #333;
+                background-color: #f8f9fa;
+                border: 1px solid #ddd;
+                padding: 2px 5px;
+                border-radius: 4px;
+                white-space: nowrap;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            /* 下方的三角形 */
+            .tooltip-triangle .triangle {
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-top: 10px solid #333; /* 改为向上的三角形 */
+            }
+
+        /* 音量条 */
+        #volumeBar {
+            display: none; /* 默认隐藏，录音时显示 */
+        }
+
+
+
+        .tooltip-triangle {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <!-- Start your project here-->
+    <section>
+        <div class="container py-5">
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+
+                    <div class="card" id="chat2">
+                        <div class="card-header d-flex justify-content-between align-items-center p-3">
+                            <h5 class="mb-0">Animal Translate</h5>
+                            <!-- Connect Wallet 按钮 -->
+                            <button type="button" class="btn btn-dark btn-sm" id="walletButton">
+                                Connect Wallet
+                            </button>
+
+                            <!-- 模态框 -->
+                            <!-- 模态框 -->
+                            <div class="modal fade"
+                                 id="walletModal"
+                                 tabindex="-1"
+                                 aria-labelledby="walletModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content" style="height: 391px;">
+                                        <!-- 模态框头部 -->
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="walletModalLabel">Log in or sign up</h5>
+                                            <button type="button"
+                                                    class="btn-close"
+                                                    data-mdb-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+
+                                        <!-- 模态框主体内容 -->
+                                        <div class="modal-body text-center">
+                                            <!-- Logo -->
+                                            <img src="kh5ynoMH_400x400.jpg"
+                                                 alt="Virtual Protocol App logo"
+                                                 style="max-height: 90px; max-width: 180px;"
+                                                 class="mb-3" />
+
+
+
+                                            <!-- 钱包登录 (MetaMask) -->
+                                            <button class="btn btn-secondary w-100 d-flex align-items-center justify-content-center" id="connectWalletButton">
+                                                <img src="metamask.png"
+                                                     alt="MetaMask Logo"
+                                                     style="width: 24px; height: 24px; margin-right: 8px;">
+                                                Continue with MetaMask
+                                            </button>
+
+
+                                            <!-- 钱包地址 (登录成功后显示) -->
+                                            <p id="walletAddressDisplay" class="mt-3 text-muted" style="display: none;"></p>
+                                        </div>
+
+                                        <!-- 模态框底部 -->
+                                        <div class="modal-footer">
+                                            <a href="https://www.privy.io/"
+                                               target="_blank"
+                                               class="text-muted small">Powered by MetaMask</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="card-body" data-mdb-perfect-scrollbar-init style="position: relative; height: 400px; overflow-y: auto;">
+
+
+                        </div>
+                        <div class="card-footer text-muted d-flex justify-content-start align-items-center p-3 position-relative">
+                            <!-- 提示三角形 -->
+                            <div class="tooltip-triangle position-absolute" style="top: -20px; left: 0;">
+                                <div class="triangle"></div>
+                                <span class="tooltip-text">点击切换</span>
+                            </div>
+
+                            <!-- 头像图片 -->
+                            <img src="ava3-bg.png"
+                                 alt="avatar 3"
+                                 id="avatarImage"
+                                 style="width: 40px; height: 100%; cursor: pointer;" />
+
+                            <!-- 上传视频按钮 -->
+                            <div class="ms-3 flex-grow-1">
+                                <label for="videoUpload" class="btn btn-primary btn-lg w-100">Upload Video</label>
+                                <input type="file" id="videoUpload" accept="video/mp4" style="display: none;" />
+                                <div id="videoFileName" class="mt-2 text-secondary small"></div>
+                            </div>
+
+                            <!-- 套餐信息（剩余时间） -->
+                            <div id="planInfo" class="ms-3 text-primary fw-semibold"></div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- End your project here-->
+    <!-- Custom scripts -->
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        // 获取 URL 参数
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // 获取 wallet 和 amount
+        const walletAddress = getQueryParam("wallet");
+        const amount = getQueryParam("amount");
+
+        if (walletAddress) {
+            // 格式化钱包地址
+            const shortAddress = `${walletAddress.substring(0, 6)}...${walletAddress.substring(walletAddress.length - 4)}`;
+
+            // 更新按钮显示
+            const walletButton = document.getElementById('walletButton');
+            walletButton.innerText = "Connect " + shortAddress;
+
+            // 发送 AJAX 请求获取用户套餐信息
+            let formData = new FormData();
+            formData.append("act", "GetUserPlan");
+            formData.append("wallet", walletAddress);
+            fetch("ajax/ajax.ashx", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    let planInfoElement = document.getElementById("planInfo");
+
+                    if (data.success) {
+                        planInfoElement.innerText = `Remaining : ${data.remainingTime} Min`;
+                    } else {
+                        planInfoElement.innerText = "No Active Plan";
+                        planInfoElement.style.color = "red"; // 失败时显示红色
+                    }
+                })
+                .catch(error => {
+                    console.error("❌ 请求错误:", error);
+                    document.getElementById("planInfo").innerText = "Error Loading Plan";
+                });
+        }
+        else {
+            // 弹窗提示并跳转到 welcome.html
+            alert("No address found. Redirecting to the welcome page...");
+            window.location.href = "welcome.html";
+        }
+
+        // **🔹 计算并更新数据库中的剩余分钟数**
+        if (walletAddress && amount) {
+            let additionalMinutes = 0;
+
+            if (amount == "100") {
+                additionalMinutes = 60;  // 套餐A
+            } else if (amount == "800") {
+                additionalMinutes = 600; // 套餐B
+            } else if (amount == "1800") {
+                additionalMinutes = 1440; // 套餐C
+            }
+
+            // 发送请求到后端，更新数据库
+            let updateFormData = new FormData();
+            updateFormData.append("act", "UpdateUserPlan");
+            updateFormData.append("wallet", walletAddress);
+            updateFormData.append("minutes", additionalMinutes);
+
+            fetch("ajax/ajax.ashx", {
+                method: "POST",
+                body: updateFormData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // 显示新的剩余时间
+                        document.getElementById("planInfo").innerText = `Remaining : ${data.remainingTime} Min`;
+                        // **去除 URL 中的 amount 参数**
+                        const url = new URL(window.location.href);
+                        url.searchParams.delete("amount"); // 移除参数
+                        window.history.replaceState({}, document.title, url.toString()); // 替换 URL，不刷新页面
+                    } else {
+                        console.log("❌ 套餐更新失败:", data.message);
+                    }
+                })
+                .catch(error => console.error("❌ 更新套餐请求错误:", error));
+        }
+
+
+        // 获取头像图片元素
+        const avatarImage = document.getElementById('avatarImage');
+
+        // 定义两个头像图片的路径
+        const avatar1 = 'ava3-bg.png';
+        const avatar2 = 'doglog.png';
+
+        // 添加点击事件监听器
+        avatarImage.addEventListener('click', () => {
+            // 切换图片路径
+            avatarImage.src = avatarImage.src.includes('ava3-bg.png') ? avatar2 : avatar1;
+        });
+
+        const tooltip = document.querySelector('.tooltip-triangle');
+        avatarImage.addEventListener('click', () => {
+
+            tooltip.style.display = 'none'; // 点击后隐藏提示
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        // 获取相关元素
+        const videoInput = document.getElementById('videoUpload');
+        const videoFileName = document.getElementById('videoFileName');
+        const uploadButtonLabel = document.querySelector('label[for="videoUpload"]');
+
+        videoInput.addEventListener('change', async function () {
+            const file = this.files[0];
+
+            if (!file) {
+                videoFileName.textContent = '';
+                return;
+            }
+
+            // 校验格式与大小
+            if (file.type !== 'video/mp4') {
+                alert('仅支持 MP4 格式的视频文件！');
+                this.value = '';
+                videoFileName.textContent = '';
+                return;
+            }
+
+            if (file.size > 10 * 1024 * 1024) {
+                alert('视频大小不能超过 10MB！');
+                this.value = '';
+                videoFileName.textContent = '';
+                return;
+            }
+
+            // 修改按钮状态为不可用 + 灰色
+            uploadButtonLabel.innerText = 'AI Analyzeing...';
+            uploadButtonLabel.classList.add('disabled');
+            uploadButtonLabel.style.pointerEvents = 'none'; // 禁止点击
+
+            /*videoFileName.textContent = `正在上传：${file.name}`;*/
+
+            // 构造 FormData 并添加视频
+            const formData = new FormData();
+            formData.append('video', file);
+            formData.append('act', 'AnalysisVideo');
+
+            try {
+                const response = await fetch('/ajax/ajax.ashx', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    const errText = await response.text();
+                    console.error("服务器返回错误：", errText);
+                    alert("上传失败，请重试！");
+                    return;
+                }
+
+                const result = await response.json();
+
+                const ChatContent = `
+                    <div class="d-flex flex-row justify-content-end mb-4">
+                        <div>
+                            <p class="small p-2 me-3 mb-1 text-white rounded-3 bg-primary">
+                                ${result.DogMessage || result.message || '分析完成'}
+                            </p>
+                        </div>
+                        <img src="doglog.png" alt="avatar" style="width: 45px; height: 100%;">
+                    </div>`;
+                $(".card-body").append(ChatContent);
+
+                /*videoFileName.textContent = `分析完成：${file.name}`;*/
+            } catch (error) {
+                console.error("上传异常：", error);
+                alert("上传出错，请检查网络！");
+                videoFileName.textContent = '';
+            } finally {
+                // 恢复按钮状态
+                uploadButtonLabel.innerText = 'Upload Video';
+                uploadButtonLabel.classList.remove('disabled');
+                uploadButtonLabel.style.pointerEvents = 'auto';
+                videoInput.value = ''; // 清空 input，防止同一个文件无法再次上传
+            }
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let walletAddress = getQueryParam("wallet"); // 获取URL中的钱包地址
+
+            if (!walletAddress) {
+                alert("❌ No wallet address found.");
+                window.location.href = "welcome.html"; // 没有钱包地址时，跳转回首页
+                return;
+            }
+
+            // 格式化钱包地址
+            const shortAddress = `${walletAddress.substring(0, 6)}...${walletAddress.substring(walletAddress.length - 4)}`;
+            document.getElementById("walletButton").innerText = "Connect " + shortAddress;
+
+            // 立即查询一次用户剩余时间
+            updateUserRemainingTime(walletAddress);
+
+            // 设置定时器，每 60 秒扣除 1 分钟
+            setInterval(() => {
+                deductUserTime(walletAddress);
+            }, 60000);
+        });
+
+        // 获取 URL 参数
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // 更新用户套餐信息
+        function updateUserRemainingTime(wallet) {
+            let formData = new FormData();
+            formData.append("act", "GetUserPlan");
+            formData.append("wallet", wallet);
+
+            fetch("ajax/ajax.ashx", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    let planInfoElement = document.getElementById("planInfo");
+                    if (data.success) {
+                        planInfoElement.innerText = `Remaining : ${data.remainingTime} Min`;
+                    } else {
+                        planInfoElement.innerText = "No Active Plan";
+                        planInfoElement.style.color = "red";
+                    }
+                })
+                .catch(error => {
+                    console.error("❌ 请求错误:", error);
+                    document.getElementById("planInfo").innerText = "Error Loading Plan";
+                });
+        }
+
+        // 每分钟扣除 1 分钟时间
+        function deductUserTime(wallet) {
+            let formData = new FormData();
+            formData.append("act", "DeductTime");
+            formData.append("wallet", wallet);
+
+            fetch("ajax/ajax.ashx", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById("planInfo").innerText = `Remaining : ${data.remainingTime} Min`;
+                        if (data.remainingTime <= 0) {
+                            alert("❌ Your time has run out. Please purchase a new plan.");
+                            window.location.href = "Buy.html"; // 时间不足，跳转到购买页面
+                        }
+                    } else {
+                        console.log("❌ 扣费失败:", data.message);
+                    }
+                })
+                .catch(error => console.error("❌ 扣费请求错误:", error));
+        }</script>
+
+</body>
+</html>

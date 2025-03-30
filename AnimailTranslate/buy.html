@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-nav-layout="horizontal" data-nav-style="menu-click" data-menu-position="fixed" data-theme-mode="light">
+
+<head>
+
+    <!-- Meta Data -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> AnimailTranslate-Buy </title>
+    <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
+    <meta name="Author" content="Spruko Technologies Private Limited">
+
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/images/brand-logos/favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap Css -->
+    <link id="style" href="./assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Style Css -->
+    <link href="./assets/css/styles.css" rel="stylesheet">
+
+    <!-- Icons Css -->
+    <link href="./assets/css/icons.css" rel="stylesheet">
+
+    <!-- Node Waves Css -->
+    <link href="./assets/libs/node-waves/waves.min.css" rel="stylesheet">
+
+    <!-- SwiperJS Css -->
+    <link rel="stylesheet" href="./assets/libs/swiper/swiper-bundle.min.css">
+
+    <!-- Color Picker Css -->
+    <link rel="stylesheet" href="./assets/libs/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" href="./assets/libs/@simonwep/pickr/themes/nano.min.css">
+
+    <!-- Choices Css -->
+    <link rel="stylesheet" href="./assets/libs/choices.js/public/assets/styles/choices.min.css">
+
+
+
+    <!-- ethers钱包 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+
+    <!-- Web3.js -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+
+</head>
+
+<body class="landing-body">
+
+    <!-- Start Switcher -->
+    <!-- End Switcher -->
+
+    <div class="landing-page-wrapper">
+
+      
+
+        <!-- Start::app-content -->
+        <div class="main-content landing-main">
+
+            <!-- 钱包登录 (MetaMask) -->
+            <div class="container my-3 d-flex justify-content-end">
+                <button type="button" class="btn btn-primary btn-wave shadow" id="walletButton" data-mdb-toggle="modal" data-mdb-target="#walletModal">
+                    Connect Wallet
+                </button>
+            </div>
+
+
+            <!-- Start:: Section-11 -->
+            <section class="section" id="pricing">
+                <div class="container text-center">
+                    <p class="fs-12 fw-semibold text-success mb-1"><span class="landing-section-heading">PRICING</span></p>
+                    <h3 class="fw-semibold mb-2">Choose the Best Plan for Your Corgi’s Conversations</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-9">
+                            <p class="text-muted fs-15 mb-5 fw-normal">
+                                Unlock real-time translation of your corgi’s barks and emotions with our flexible plans.
+                                Whether it's a quick chat or an all-day deep dive into your pup's thoughts, we have the right plan for you.
+                            </p>
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-wave shadow" id="TryFreeButton" onclick="GetFreeTry()">Get Free Try</button>
+                            </div>
+                            <br />
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-wave shadow" id="TryButton" style="display:none;" onclick="GetTry()">Get Try</button>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+
+                    <div class="card custom-card overflow-hidden shadow-none">
+                        <div class="card-body p-0">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane show active p-0" id="pricing-monthly-pane" role="tabpanel" aria-labelledby="pricing-monthly" tabindex="0">
+                                    <div class="row">
+                                        <!-- Plan A -->
+                                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 border-end border-inline-end-dashed">
+                                            <div class="p-4">
+                                                <h6 class="fw-semibold text-center">PLAN A</h6>
+                                                <div class="py-4 d-flex align-items-center justify-content-center">
+                                                    <div class="pricing-svg1">
+                                                        🐶⏳
+                                                    </div>
+                                                    <div class="text-end ms-5">
+                                                        <p class="fs-25 fw-semibold mb-0">100 tBTA</p>
+                                                        <p class="text-muted fs-11 fw-semibold mb-0">for 1 hour</p>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-unstyled text-center fs-12 px-3 pt-3 mb-0">
+                                                    <li class="mb-3">
+                                                        <span class="text-muted">Real-time Bark Translation</span>
+                                                    </li>
+                                                    <li class="mb-3">
+                                                        <span class="text-muted">Basic Emotion Analysis</span>
+                                                    </li>
+                                                    <li class="mb-3">
+                                                        <span class="text-muted">Standard Voice Processing</span>
+                                                    </li>
+                                                </ul>
+                                                <div class="d-grid">
+                                                    <button class="btn btn-primary-light btn-wave" onclick="buyPackage(100)"> Get Started</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Plan B -->
+                                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 border-end border-inline-end-dashed">
+                                            <div class="p-4">
+                                                <h6 class="fw-semibold text-center">PLAN B</h6>
+                                                <div class="py-4 d-flex align-items-center justify-content-center">
+                                                    <div class="pricing-svg1">
+                                                        🐶🔍⏳
+                                                    </div>
+                                                    <div class="text-end ms-5">
+                                                        <p class="fs-25 fw-semibold mb-0">800 tBTA</p>
+                                                        <p class="text-muted fs-11 fw-semibold mb-0">for 10 hours</p>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-unstyled text-center fs-12 px-3 pt-3 mb-0">
+                                                    <li class="mb-3">
+                                                        <span class="text-muted">Enhanced Bark Translation</span>
+                                                    </li>
+                                                    <li class="mb-3">
+                                                        <span class="text-muted">Advanced Emotion & Mood Detection</span>
+                                                    </li>
+                                                    <li class="mb-3">
+                                                        <span class="text-muted">Noise Reduction for Outdoor Use</span>
+                                                    </li>
+                                                    <li class="mb-3">
+                                                        <span class="text-muted">Voice Storage & Playback</span>
+                                                    </li>
+                                                </ul>
+                                                <div class="d-grid">
+                                                    <button class="btn btn-primary-light btn-wave" onclick="buyPackage(800)">Get Started</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Plan C -->
+                                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                                            <div class="p-4 pricing-offer overflow-hidden">
+                                                <span class="pricing-offer-details shadow">
+                                                    <span class="fw-semibold">Best Value</span>
+                                                </span>
+                                                <h6 class="fw-semibold text-center">PLAN C</h6>
+                                                <div class="py-4 d-flex align-items-center justify-content-center">
+                                                    <div class="pricing-svg1">
+                                                        🐶🧠💬⏳
+                                                    </div>
+                                                    <div class="text-end ms-5">
+                                                        <p class="fs-25 fw-semibold mb-0 text-primary">1800 tBTA</p>
+                                                        <p class="text-muted fs-11 fw-semibold mb-0">for 24 hours</p>
+                                                    </div>
+                                                </div>
+                                                <ul class="list-unstyled text-center fs-12 px-3 pt-3 mb-0">
+                                                    <li class="mb-3">
+                                                        <span class="text-muted">Full AI-Powered Dog Communication</span>
+                                                    </li>
+                                                    <li class="mb-3">
+                                                        <span class="text-muted">Deep Emotional Analysis & Behavior Insights</span>
+                                                    </li>
+                                                    <li class="mb-3">
+                                                        <span class="text-muted">Multi-Dog Recognition & Interaction</span>
+                                                    </li>
+                                                    <li class="mb-3">
+                                                        <span class="text-muted">Customizable Translation Profiles</span>
+                                                    </li>
+                                                    <li class="mb-3">
+                                                        <span class="text-muted">Real-Time Alerts on Unusual Bark Patterns</span>
+                                                    </li>
+                                                </ul>
+                                                <div class="d-grid">
+                                                    <button class="btn btn-primary-light btn-wave" onclick="buyPackage(1800)">Get Started</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- End:: Section-11 -->
+
+            <footer class="footer mt-auto py-3 bg-white text-center">
+                <div class="container">
+                    <span class="text-muted">
+                        Copyright © <span id="year"></span> <a href="javascript:void(0);" class="text-dark fw-semibold">AnimailTranslate</a>.
+                        Designed with <span class="bi bi-heart-fill text-danger"></span> by <a href="javascript:void(0);">
+                            <span class="fw-semibold text-primary text-decoration-underline">AnimailTranslate</span>
+                        </a> All
+                        rights
+                        <a href="###">AnimailTranslate</a>
+                    </span>
+                </div>
+            </footer>
+
+        </div>
+        <!-- End::app-content -->
+        <input type="text" id="walletAddress_txt" placeholder="Enter your wallet address" style="display: none;">
+    </div>
+
+    <div class="scrollToTop">
+        <span class="arrow"><i class="ri-arrow-up-s-fill fs-20"></i></span>
+    </div>
+    <div id="responsive-overlay"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        document.getElementById('walletButton').addEventListener('click', async function () {
+            if (typeof window.ethereum !== 'undefined') {
+                console.log("✅ MetaMask detected (Mobile or Desktop)");
+
+                try {
+                    const provider = new ethers.providers.Web3Provider(window.ethereum);
+                    await provider.send("eth_requestAccounts", []);
+                    const signer = provider.getSigner();
+                    const walletAddress = await signer.getAddress();
+                    let tryButton = document.getElementById("TryButton");
+                    console.log("✅ Wallet Address:", walletAddress);//写入钱包完整地址
+                    $("#walletAddress_txt").val(walletAddress);// 显示钱包地址
+                   
+                    const shortAddress = `${walletAddress.substring(0, 6)}...${walletAddress.substring(walletAddress.length - 4)}`;
+                    const walletButton = document.getElementById('walletButton');
+                    walletButton.innerText = "connect" + shortAddress;
+                    walletButton.removeAttribute("data-mdb-toggle");
+                    walletButton.removeAttribute("data-mdb-target");
+
+                    // 生成签名
+                    const message = "Log in to Animal Translate AI";
+                    const signature = await signer.signMessage(message);
+                    console.log("✍️ Signature:", signature);
+
+                    // 发送到后端验证
+                    $.ajax({
+                        url: '/ajax/ajax.ashx',
+                        type: 'POST',
+                        data: {
+                            act: "VerifySignature",
+                            walletAddress: walletAddress,
+                            signature: signature,
+                            message: message
+                        },
+                        dataType: 'json',
+                        success: function (response) {
+                            console.log("✅ 服务器返回:", response);
+                            //alert(response.message);
+                            tryButton.style.display = "block";//显示使用按钮
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("❌ 请求失败:", xhr.responseText);
+                            alert("服务器错误，请检查 Console 日志！");
+                        }
+                    });
+
+                } catch (error) {
+                    console.error("❌ MetaMask 连接失败:", error);
+                    alert("MetaMask 连接失败，请重试！");
+                }
+
+            } else {
+                console.log("❌ MetaMask 未检测到，尝试打开 MetaMask App");
+
+                // MetaMask Deep Link 调起 App (iOS / Android)
+                const metamaskDeepLink = "https://metamask.app.link/dapp/" + window.location.href;
+
+                // 检测是否是移动设备
+                if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                    window.location.href = metamaskDeepLink;
+                } else {
+                    alert("请安装 MetaMask 并使用 MetaMask 内置浏览器打开！");
+                    window.open("https://metamask.io/download.html", "_blank");
+                }
+            }
+        });
+
+
+
+        document.getElementById('connectWalletButton').addEventListener('click', async function () {
+            if (typeof window.ethereum !== 'undefined') {
+                console.log("✅ MetaMask detected");
+
+                try {
+                    const provider = new ethers.providers.Web3Provider(window.ethereum);
+                    await provider.send("eth_requestAccounts", []);
+                    const signer = provider.getSigner();
+                    const walletAddress = await signer.getAddress();
+
+                    console.log("✅ Wallet Address:", walletAddress);
+
+                    // 显示钱包地址
+                    const walletAddressDisplay = document.getElementById('walletAddressDisplay');
+                    walletAddressDisplay.innerText = `Connected: ${walletAddress}`;
+                    walletAddressDisplay.style.display = 'block';
+
+                    // 生成签名
+                    const message = "Log in to Animal Translate AI";
+                    const signature = await signer.signMessage(message);
+                    console.log("✍️ Signature:", signature);
+
+                    // 发送到后端验证
+                    $.ajax({
+                        url: '/ajax/ajax.ashx',
+                        type: 'POST',
+                        data: {
+                            act: "VerifySignature",
+                            walletAddress: walletAddress,
+                            signature: signature,
+                            message: message
+                        },
+                        dataType: 'json',
+                        success: function (response) {
+                            console.log("✅ 服务器返回:", response);
+                            alert(response.message);
+
+                            // 登录成功后，关闭模态框
+                            $('#walletModal').modal('hide');
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("❌ 请求失败:", xhr.responseText);
+                            alert("服务器错误，请检查 Console 日志！");
+                        }
+                    });
+
+                } catch (error) {
+                    console.error("❌ MetaMask 连接失败:", error);
+                    alert("MetaMask 连接失败，请重试！");
+                }
+
+            } else {
+                alert("❌ 请安装 MetaMask 扩展！");
+            }
+        });
+
+        function GetTry() {
+            var walletAddress = document.getElementById("walletAddress_txt").value.trim();
+
+            var formData = new FormData();
+            formData.append("act", "CheckRemainingTime");
+            formData.append("wallet", walletAddress);
+
+            fetch("ajax/ajax.ashx", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        if (data.remainingTime > 0) {
+                            window.location.href = "VideoAnalysis.html?wallet=" + encodeURIComponent(walletAddress);
+                        } else {
+                            alert("No Active Plan,Please Buy New One");
+                        }
+                    } else {
+                        alert("查询失败：" + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error("❌ 查询错误:", error);
+                    alert("网络错误，请稍后重试！");
+                });
+        }
+
+        async function buyPackage(amount) {
+            if (typeof window.ethereum === "undefined") {
+                alert("请安装 MetaMask 以进行支付！");
+                return;
+            }
+
+            const web3 = new Web3(window.ethereum);
+            await window.ethereum.request({ method: "eth_requestAccounts" });
+            const accounts = await web3.eth.getAccounts();
+            const walletAddress = accounts[0]; // 获取用户的钱包地址
+
+            if (!walletAddress) {
+                alert("钱包未连接！");
+                return;
+            }
+
+            // tBTA 代币合约地址 (BNB 测试链)
+            const tokenContractAddress = "0x9319a7d2612b7a1f5313809F63a74832A30a11a1";
+            const receiverAddress = "0x68F245643aE1957241DcB66A2057Ab330a293085";  // ⚠️ 请填写你的 BNB 地址 (接受 tBTA 付款)
+            const tokenABI = [
+                {
+                    "constant": false,
+                    "inputs": [
+                        { "name": "_spender", "type": "address" },
+                        { "name": "_value", "type": "uint256" }
+                    ],
+                    "name": "approve",
+                    "outputs": [{ "name": "", "type": "bool" }],
+                    "type": "function"
+                },
+                {
+                    "constant": false,
+                    "inputs": [
+                        { "name": "_from", "type": "address" },
+                        { "name": "_to", "type": "address" },
+                        { "name": "_value", "type": "uint256" }
+                    ],
+                    "name": "transferFrom",
+                    "outputs": [{ "name": "", "type": "bool" }],
+                    "type": "function"
+                }
+            ];
+
+            const tokenContract = new web3.eth.Contract(tokenABI, tokenContractAddress);
+
+            let tBTAAmount = 0;
+            if (amount == "100") {
+                tBTAAmount = web3.utils.toWei("100", "ether"); // 套餐A：100 tBTA
+            } else if (amount == "800") {
+                tBTAAmount = web3.utils.toWei("800", "ether"); // 套餐B：800 tBTA
+            } else if (amount == "1800") {
+                tBTAAmount = web3.utils.toWei("1800", "ether"); // 套餐C：1800 tBTA
+            } else {
+                alert("无效的套餐金额！");
+                return;
+            }
+
+            try {
+                // 1️⃣ 用户授权合约可以扣除 `tBTA`
+                await tokenContract.methods.approve(receiverAddress, tBTAAmount).send({ from: walletAddress });
+
+                // 2️⃣ 进行 `tBTA` 交易，将 `tBTA` 发送给 `receiverAddress`
+                await tokenContract.methods.transferFrom(walletAddress, receiverAddress, tBTAAmount).send({ from: walletAddress });
+
+                // 3️⃣ 交易成功后，更新数据库，增加用户的套餐时间
+                let updateFormData = new FormData();
+                updateFormData.append("act", "UpdateUserPlan");
+                updateFormData.append("wallet", walletAddress);
+                updateFormData.append("minutes", amount); // 传递购买的套餐金额
+
+                fetch("ajax/ajax.ashx", {
+                    method: "POST",
+                    body: updateFormData
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert(`购买成功！已添加 ${data.remainingTime} 分钟`);
+                            window.location.href = "VideoAnalysis.html?wallet=" + encodeURIComponent(walletAddress);
+                        } else {
+                            alert("❌ 购买失败：" + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("❌ 购买请求错误:", error);
+                        alert("❌ 购买失败，请重试！");
+                    });
+
+            } catch (error) {
+                console.error("❌ 交易失败:", error);
+                alert("❌ 交易失败，请检查钱包余额或网络连接！");
+            }
+        }
+
+
+        </script>
+
+      <script>
+          function GetFreeTry() {
+              var walletAddress = "0x6d70ab0c045CF687E7C3d257519f329302CF7233";
+
+              var formData = new FormData();
+              formData.append("act", "CheckRemainingTime");
+              formData.append("wallet", walletAddress);
+
+              fetch("ajax/ajax.ashx", {
+                  method: "POST",
+                  body: formData
+              })
+                  .then(response => response.json())
+                  .then(data => {
+                      if (data.success) {
+                          if (data.remainingTime > 0) {
+                              window.location.href = "VideoAnalysis.html?wallet=" + encodeURIComponent(walletAddress);
+                          } else {
+                              alert("No Active Plan,Please Buy New One");
+                          }
+                      } else {
+                          alert("查询失败：" + data.message);
+                      }
+                  })
+                  .catch(error => {
+                      console.error("❌ 查询错误:", error);
+                      alert("网络错误，请稍后重试！");
+                  });
+          }
+      </script>
+
+</body>
+
+</html>

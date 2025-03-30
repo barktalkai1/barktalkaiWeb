@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Animal Translate AI Agent</title>
+
+    <!-- Meta Data -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> YNEX - Bootstrap 5 Premium Admin & Dashboard Template </title>
+    <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
+    <meta name="Author" content="Spruko Technologies Private Limited">
+    <meta name="keywords" content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/images/brand-logos/favicon.ico" type="image/x-icon">
+
+    <!-- Choices JS -->
+    <script src="./assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+
+    <!-- Main Theme Js -->
+    <script src="./assets/js/main.js"></script>
+
+    <!-- Bootstrap Css -->
+    <link id="style" href="./assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Style Css -->
+    <link href="./assets/css/styles.min.css" rel="stylesheet">
+
+    <!-- Icons Css -->
+    <link href="./assets/css/icons.css" rel="stylesheet">
+
+    <!-- Node Waves Css -->
+    <link href="./assets/libs/node-waves/waves.min.css" rel="stylesheet">
+
+    <!-- Simplebar Css -->
+    <link href="./assets/libs/simplebar/simplebar.min.css" rel="stylesheet">
+
+    <!-- Color Picker Css -->
+    <link rel="stylesheet" href="./assets/libs/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" href="./assets/libs/@simonwep/pickr/themes/nano.min.css">
+
+    <!-- Choices Css -->
+    <link rel="stylesheet" href="./assets/libs/choices.js/public/assets/styles/choices.min.css">
+
+
+    <!-- Prism CSS -->
+    <link rel="stylesheet" href="./assets/libs/prismjs/themes/prism-coy.min.css">
+
+    <link rel="stylesheet" href="./assets/libs/filepond/filepond.min.css">
+    <link rel="stylesheet" href="./assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css">
+    <link rel="stylesheet" href="./assets/libs/filepond-plugin-image-edit/filepond-plugin-image-edit.min.css">
+    <link rel="stylesheet" href="./assets/libs/dropzone/dropzone.css">
+
+    <style>
+        html,
+        body,
+        .intro {
+            height: 100%;
+        }
+
+        .bg-image-vertical {
+            position: relative;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: auto 100%;
+        }
+    </style>
+
+
+</head>
+<body>
+    <section class="intro">
+        <div class="bg-image-vertical h-100" style="background-color: #EFD3E4; background-image: url('img1.jpg');">
+            <div class="mask d-flex align-items-center h-100">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-10">
+                            <div class="card" style="border-radius: 1rem;">
+                                <div class="card-body p-5">
+
+                                    <h1 class="mb-5 text-center">Sample Upload </h1>
+
+
+                                    <!-- 2 column grid layout with text inputs for pet name and category -->
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                        <label for="input-placeholder" class="form-label">Pet name</label>
+                                        <input type="text" class="form-control" id="input-placeholder" placeholder="Pet name">
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                        <label for="input-placeholder" class="form-label">Pet Cate</label>
+                                        <input type="text" class="form-control" id="input-placeholder" placeholder="Pembroke Welsh Corgi" disabled="disabled">
+                                    </div>
+
+                                    <!-- Scene Dropdown -->
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                        <label for="input-placeholder" class="form-label">Scence</label>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>
+                                               Please Select
+                                            </option>
+                                            <option value="1">Home</option>
+                                            <option value="2">Park</option>
+                                            <option value="3">ShopMall</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                        <label for="input-placeholder" class="form-label">Emotion</label>
+                                        <input type="text" class="form-control" id="input-placeholder" placeholder="Emotion">
+                                    </div>
+
+                                    <!-- Email Input -->
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                        <label for="input-placeholder" class="form-label">Email</label>
+                                        <input type="text" class="form-control" id="input-placeholder" placeholder="Email">
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <div class="card custom-card">
+                                                <div class="card-header">
+                                                    <div class="card-title">
+                                                        Sample Video Dropzone
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <form data-single="true" method="post" action="https://httpbin.org/post" class="dropzone dz-clickable"><div class="dz-default dz-message"><button class="dz-button" type="button">Drop VideoSample here to upload</button></div></form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Submit button -->
+                                    <button type="submit" class="btn btn-secondary btn-rounded btn-block">Upload Sample</button>
+
+                                    <a href="Welcome.html" class="btn btn-info btn-rounded btn-block">Back</a>
+
+
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+</body>
+</html>
