@@ -116,3 +116,5 @@ Commercial license for enterprise applications
 For support, visit GitHub Issues or join our Discord community. info@barktalkai.app
 
 🐶 Understand your furry friend like never before with DogLifeHelper! 🐾
+
+PPT Link:https://drive.google.com/file/d/1BfIdpASPaiW6WVHy3FUm-jrf0tOau6gE/view?usp=sharing
