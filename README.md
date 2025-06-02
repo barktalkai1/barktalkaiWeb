@@ -117,4 +117,4 @@ For support, visit GitHub Issues or join our Discord community. info@barktalkai.
 
 🐶 Understand your furry friend like never before with DogLifeHelper! 🐾
 
-PPT Link:https://drive.google.com/file/d/1BfIdpASPaiW6WVHy3FUm-jrf0tOau6gE/view?usp=sharing
+PPT Link:[https://drive.google.com/file/d/1BfIdpASPaiW6WVHy3FUm-jrf0tOau6gE/view?usp=sharing](https://docs.google.com/presentation/d/1W4oihQnVQfQ6SeSI0c8zP2ewYvOI3VSj/edit?usp=drive_link&ouid=116644850069278642930&rtpof=true&sd=true)
