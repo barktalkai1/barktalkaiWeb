@@ -1,35 +1,50 @@
+API interface documents for BarkTalkAI:
 
-# barktalkai
+---
 
-Base URLs:
+## 🐶 Endpoint 1: YOLO - Dog Object Detection API
 
-* <a href="47.239.65.125:1785">测试环境: 47.239.65.125:1785</a>
+### Description
 
-# Authentication
+Detects objects (such as dogs, cats, and people) in the uploaded video using the YOLO model.
 
-# Default
+---
 
-## POST Yolo-狗狗目标检测
+### Request Method
 
-POST /detect/
+`POST http://47.239.65.125:1785/detect/`
+---
 
-> Body 请求参数
+### Request Parameters
 
-```yaml
-video: cmMtdXBsb2FkLTE3NDg5NTc3MDQ0NDAtMzk=/test.mp4
+| Parameter | Location | Type            | Required | Description                            |
+| --------- | -------- | --------------- | -------- | -------------------------------------- |
+| video     | body     | string (binary) | Yes      | Path or encoding of the uploaded video |
 
+**Request Example:**
+
+```bash
+curl --location --request POST 'http://barktalkai.app:1786/detect/' \
+--header 'User-Agent: Apifox/1.0.0 (https://apifox.com)' \
+--header 'Accept: */*' \
+--header 'Host: barktalkai.app:1786' \
+--header 'Connection: keep-alive' \
+--form 'video=@"cmMtdXBsb2FkLTE3NDg5NTc3MDQ0NDAtNDM=/test.mp4"'
 ```
 
-### 请求参数
+---
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|body|body|object| 否 |none|
-|» video|body|string(binary)| 是 |none|
+### Response Data
 
-> 返回示例
+| Field             | Type    | Description                              |
+| ----------------- | ------- | ---------------------------------------- |
+| filename          | string  | Name of the uploaded video               |
+| detected\_objects | array   | List of detected objects                 |
+| ┗ class           | string  | Detected class (e.g., dog, person, etc.) |
+| ┗ confidence      | number  | Confidence score (range: 0–1)            |
+| count             | integer | Total number of detected objects         |
 
-> 200 Response
+**Response Example:**
 
 ```json
 {
@@ -60,45 +75,60 @@ video: cmMtdXBsb2FkLTE3NDg5NTc3MDQ0NDAtMzk=/test.mp4
 }
 ```
 
-### 返回结果
+---
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+### Response Codes
 
-### 返回数据结构
+| Status Code | Meaning                                        |
+| ----------- | ---------------------------------------------- |
+| 200         | Request successful, detection results returned |
 
-状态码 **200**
+---
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|» filename|string|true|none||none|
-|» detected_objects|[object]|true|none||none|
-|»» class|string|true|none||none|
-|»» confidence|number|true|none||none|
-|» count|integer|true|none||none|
+## 🐕 Endpoint 2: MMAction2 - Dog Behavior Analysis API
 
-## POST MMaction2-狗狗行为分析
+### Description
 
-POST /predict/
+Analyzes the dog's behavior in the video to determine likelihoods of hunger, wanting to play, or wanting to pee.
 
-> Body 请求参数
+---
 
-```yaml
-video: cmMtdXBsb2FkLTE3NDg5NTc3MDQ0NDAtMjY=/test.mp4
+### Request Method
 
+`POST http://47.239.65.125:1785/predict/`
+
+---
+
+### Request Parameters
+
+| Parameter | Location | Type            | Required | Description                            |
+| --------- | -------- | --------------- | -------- | -------------------------------------- |
+| video     | body     | string (binary) | Yes      | Path or encoding of the uploaded video |
+
+**Request Example:**
+
+```bash
+curl --location --request POST 'http://barktalkai.app:1785/predict/' \
+--header 'User-Agent: Apifox/1.0.0 (https://apifox.com)' \
+--header 'Accept: */*' \
+--header 'Host: barktalkai.app:1785' \
+--header 'Connection: keep-alive' \
+--form 'video=@"cmMtdXBsb2FkLTE3NDg5NTc3MDQ0NDAtNDg=/test.mp4"'
 ```
 
-### 请求参数
+---
 
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|body|body|object| 否 |none|
-|» video|body|string(binary)| 是 |none|
+### Response Data
 
-> 返回示例
+| Field         | Type   | Description                          |
+| ------------- | ------ | ------------------------------------ |
+| filename      | string | Name of the uploaded video           |
+| prediction    | object | Prediction result                    |
+| ┗ DogHunger   | number | Probability of hunger (range: 0–1)   |
+| ┗ DogWantPlay | number | Probability of wanting to play (0–1) |
+| ┗ DogWantPee  | number | Probability of wanting to pee (0–1)  |
 
-> 200 Response
+**Response Example:**
 
 ```json
 {
@@ -111,20 +141,14 @@ video: cmMtdXBsb2FkLTE3NDg5NTc3MDQ0NDAtMjY=/test.mp4
 }
 ```
 
-### 返回结果
+---
 
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|none|Inline|
+### Response Codes
 
-### 返回数据结构
+| Status Code | Meaning                                        |
+| ----------- | ---------------------------------------------- |
+| 200         | Request successful, behavior analysis returned |
 
-状态码 **200**
+---
 
-|名称|类型|必选|约束|中文名|说明|
-|---|---|---|---|---|---|
-|» filename|string|true|none||none|
-|» prediction|object|true|none||none|
-|»» DogHunger|number|true|none||none|
-|»» DogWantPlay|number|true|none||none|
-|»» DogWantPee|number|true|none||none|
+
